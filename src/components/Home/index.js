@@ -1,10 +1,23 @@
 import "./Home.css";
+import BlurText from "../utils/BlurText";
 
+const handleAnimationComplete = () => {
+    console.log("Animation completed!");
+};
 const Home = (props) => {
     return (
         <div className="home">
             <div className="text">
                 <h1>Junior Souza</h1>
+
+                <BlurText
+                    text="Junior Souza"
+                    delay={200}
+                    animateBy="words"
+                    direction="top"
+                    onAnimationComplete={handleAnimationComplete}
+                    className="flex flex-wrap text-4xl font-bold text-slate-800 dark:text-white"
+                />
                 <a href="a" className="textDesc">
                     Desde pequeno sempre fui apaixonado por tecnologia e tive o
                     desejo de trabalhar em desenvolvimento. Durante a minha

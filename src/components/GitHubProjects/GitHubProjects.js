@@ -1,9 +1,58 @@
 import React from "react";
 import "./GitHubProjects.css";
-import AjudaFortalezaDetails from "../AjudaFortaleza/AjudaFortalezaDetails";
-import BibliotecaOnline from "../BibliotecaOnline/BibliotecaOnline";
-import FoodScript from "../FoodScript/FoodScript";
+import GridProject from "../utils/GridProject";
+import Details from "../utils/Details";
 import Footer from "../Footer/Footer";
+import ajudaImage from "../../assets/ajudaImage.png";
+import bibliotecaOnline from "../../assets/bibliotecaOnline.png";
+import foodScriptImage from "../../assets/foodScriptImage.png";
+import bomboniereImage from "../../assets/bomboniereImage.png";
+
+const projectsData = [
+    {
+        title: "Bomboniere Manas",
+        description:
+            "Site institucional e catálogo online desenvolvido para a Bomboniere Manas. O projeto apresenta a variedade de produtos da loja, fortalecendo a presença digital da marca e facilitando o acesso dos clientes às informações e novidades.",
+        repoLink: "/",
+        liveLink: "https://www.bombonieremanas.com.br/",
+        image: bomboniereImage,
+    },
+    {
+        title: "AjudaFortaleza",
+        description:
+            "AjudaFortaleza é um projeto acadêmico dedicado a conectar pessoas e organizações que buscam contribuir com causas sociais em Fortaleza. O site oferece um catálogo completo de ONGs locais, permitindo que os usuários descubram, conheçam e se envolvam com instituições que fazem a diferença na cidade. Com informações detalhadas sobre as áreas de atuação, necessidades de voluntariado e opções de doações, o AjudaFortaleza facilita o engajamento da comunidade em ações solidárias. A plataforma também serve como um ponto de encontro para quem deseja promover ou apoiar campanhas sociais, ajudando a fortalecer a rede de apoio e assistência na região.",
+        repoLink: "https://github.com/Thejuniorsouza/AjudaFortalezaApp",
+        liveLink: "https://ajuda-fortaleza-app.vercel.app/",
+        image: ajudaImage,
+    },
+    {
+        title: "FoodScript",
+        description:
+            "O FoodScript é um projeto de um sistema web de cadastro de receitas culinárias, desenvolvido como Trabalho de Conclusão de Curso (TCC). O sistema permite que usuários cadastrem e gerenciem suas próprias receitas, facilitando o compartilhamento e a organização de informações culinárias.",
+        repoLink: "https://github.com/Thejuniorsouza/FoodScript",
+        liveLink: "https://food-script.vercel.app/",
+        image: foodScriptImage,
+    },
+    {
+        title: "Estante de livros",
+        description:
+            "Estante de livros é um projeto acadêmico projetado para ajudar os amantes de livros a organizar suas leituras de forma simples e eficiente. Através do site, os usuários podem cadastrar livros que já leram, estão lendo ou planejam ler. Cada livro pode ser classificado com notas. Além disso, os usuários têm a possibilidade de escrever resenhas pessoais, registrando suas impressões e opiniões sobre cada obra. Com uma interface amigável e intuitiva, o Estante de livros permite aos leitores acompanhar seu progresso literário. O objetivo do site é transformar o hábito da leitura em uma experiência mais organizada e interativa, permitindo que o usuário mantenha um histórico completo de suas leituras e descobertas literárias.",
+        repoLink: "https://github.com/jonathashnr/livrosapp",
+        liveLink: "/",
+        image: bibliotecaOnline,
+    },
+];
+
+const ProjectCard = ({ project }) => (
+    <GridProject image={project.image}>
+        <Details
+            title={project.title}
+            description={project.description}
+            repoLink={project.repoLink}
+            liveLink={project.liveLink}
+        />
+    </GridProject>
+);
 
 const GitHubProjectSection = () => {
     return (
@@ -33,19 +82,17 @@ const GitHubProjectSection = () => {
                     </svg>
                 </div>
                 <h1>Meus projetos</h1>
-                <AjudaFortalezaDetails />
 
-                <section class="page">
-                    <hr class="dashed-divider" />
-                </section>
-
-                <BibliotecaOnline />
-
-                <section class="page">
-                    <hr class="dashed-divider" />
-                </section>
-
-                <FoodScript />
+                {projectsData.map((project, index) => (
+                    <React.Fragment key={index}>
+                        <ProjectCard project={project} />
+                        {index < projectsData.length - 1 && (
+                            <section className="page">
+                                <hr className="dashed-divider" />
+                            </section>
+                        )}
+                    </React.Fragment>
+                ))}
                 <div className="footer"></div>
             </section>
             <Footer />

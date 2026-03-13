@@ -18,11 +18,15 @@
     justify-content: baseline;
 }
 
-img {
+.headerProject img {
     height: 25rem;
+    height: auto; /* Altura ajustável */
+    aspect-ratio: 16/9; /* Força a proporção widescreen (mockup) */
     width: 30rem;
     margin-top: 5rem;
     border-radius: 20px;
+    object-fit: cover; /* Garante que a imagem cubra o espaço sem esticar */
+    object-position: top; /* Prioriza o topo da imagem no corte */
 }
 
 .textCard1 {
@@ -90,10 +94,18 @@ img {
         background-color: white;
     }
 
-    img {
-        height: 20rem;
-        width: 25rem;
-        margin-top: 5rem;
-        border-radius: 20px;
+    .card1 {
+        flex-direction: column;
+    }
+
+    .headerProject img {
+        height: auto;
+        width: 90%;
+        margin-top: 2rem;
+        max-height: 25rem;
+    }
+
+    .textCard1 {
+        padding: 2rem 1rem;
     }
 }
