@@ -58,7 +58,7 @@ const GitHubProjectSection = () => {
     return (
         <div className="github-projects">
             <section className="headerProject">
-                <div class="custom-shape-divider-top-1725584300">
+                <div className="custom-shape-divider-top-1725584300">
                     <svg
                         data-name="Layer 1"
                         xmlns="http://www.w3.org/2000/svg"

@@ -1,51 +1,209 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap");
 
+@keyframes blink {
+    0%,
+    49% {
+        opacity: 1;
+    }
+    50%,
+    100% {
+        opacity: 0;
+    }
+}
+
+.typing-cursor-bar {
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    background-color: var(--color-accent);
+    margin-left: 2px;
+    animation: blink 0.7s infinite;
+    vertical-align: middle;
+}
+
+.typing-h1 {
+    color: white;
+    font-size: clamp(2.5rem, 6vw, 56px);
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    line-height: 1.2;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    display: inline-block;
+}
+
 .home {
-    margin-top: 10rem;
-    margin-bottom: 10rem;
+    display: flex;
+    flex-direction: row;
     align-items: center;
-    position: relative;
+    justify-content: center;
+    gap: clamp(2rem, 8%, 6rem);
+    width: 100%;
+    max-width: 100%;
+    margin: clamp(4rem, 12%, 10rem) auto;
+    padding: clamp(1.5rem, 6%, 4rem);
     text-align: center;
-    display: inline-flex;
-    justify-content: space-between;
-    padding: 80px;
-    max-width: 68.75rem;
+    position: relative;
+}
+
+.text {
+    flex: 1 1 clamp(250px, 45%, 600px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(1rem, 3%, 2rem);
+    text-align: left;
 }
 
 .text h1 {
     color: white;
-    font-size: 50px;
-    padding: 2rem;
+    font-size: clamp(2.5rem, 6vw, 56px);
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    line-height: 1.2;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
-.text a {
+
+.text a,
+.textDesc {
     text-decoration: none;
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 20px;
-    color: #9c9c9c;
+    font-family: var(--font-mono);
+    font-size: clamp(14px, 2.2vw, 18px);
+    color: var(--color-gray);
+    line-height: 1.8;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    max-width: 100%;
+}
+
+.img {
+    flex: 1 1 clamp(220px, 40%, 480px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .home img {
-    margin: 8em 0 8em 8em;
-    width: 400px;
-    border-radius: 1000px;
+    width: 100%;
+    max-width: clamp(220px, 95%, 450px);
+    height: auto;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
 }
 
-@media screen and (max-width: 768px) {
+/* Tablet: 769px to 1024px */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
     .home {
-        margin-top: -1.3rem;
-        align-items: center;
-        align-content: center;
-        border-top: 80px;
-        flex-direction: column;
-        padding: 24px 8px;
+        gap: clamp(1.5rem, 6%, 4rem);
+        margin: clamp(3rem, 10%, 6rem) auto;
+        padding: clamp(1rem, 4%, 3rem);
     }
 
     .text {
-        padding: 120px 0px 30px 0px;
+        flex: 1 1 clamp(220px, 48%, 500px);
+        gap: clamp(0.75rem, 2%, 1.5rem);
+    }
+
+    .text h1 {
+        font-size: clamp(2rem, 5vw, 42px);
+    }
+
+    .typing-h1 {
+        font-size: clamp(2rem, 5vw, 42px);
+        display: inline-block;
+    }
+
+    .text a,
+    .textDesc {
+        font-size: clamp(13px, 2vw, 16px);
+    }
+
+    .img {
+        flex: 1 1 clamp(180px, 42%, 380px);
     }
 
     .home img {
+        max-width: clamp(180px, 92%, 380px);
+    }
+}
+
+/* Mobile: 480px to 768px */
+@media screen and (max-width: 768px) {
+    .home {
+        flex-direction: column;
+        gap: clamp(0.75rem, 1.5%, 1.2rem);
+        min-height: 100vh;
+        padding: clamp(6.5rem, 16%, 8.5rem) clamp(1rem, 4%, 2rem)
+            clamp(2rem, 5%, 3rem) clamp(1rem, 4%, 2rem);
         margin: 0;
-        width: 80%;
+        text-align: center;
+    }
+
+    .text {
+        flex: 1 1 100%;
+        align-items: center;
+        text-align: center;
+        gap: clamp(0.5rem, 1.5%, 0.75rem);
+        justify-content: flex-start;
+    }
+
+    .text h1 {
+        font-size: clamp(2rem, 4vw, 36px);
+    }
+
+    .typing-h1 {
+        font-size: clamp(2rem, 4vw, 36px);
+        display: inline-block;
+    }
+
+    .text a,
+    .textDesc {
+        font-size: clamp(13px, 3vw, 15px);
+        max-width: 100%;
+    }
+
+    .img {
+        flex: 1 1 100%;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .home img {
+        max-width: clamp(180px, 80%, 300px);
+    }
+}
+
+/* Small Mobile: up to 479px */
+@media screen and (max-width: 479px) {
+    .home {
+        min-height: 100vh;
+        padding: clamp(6rem, 14%, 7.5rem) clamp(0.75rem, 3%, 1.5rem)
+            clamp(1.5rem, 4%, 2rem) clamp(0.75rem, 3%, 1.5rem);
+        margin: 0;
+        gap: clamp(0.5rem, 1%, 0.8rem);
+    }
+
+    .text {
+        gap: clamp(0.5rem, 1.5%, 0.75rem);
+    }
+
+    .text h1 {
+        font-size: clamp(1.5rem, 5vw, 28px);
+    }
+
+    .text a,
+    .textDesc {
+        font-size: clamp(12px, 2.5vw, 14px);
+    }
+
+    .home img {
+        max-width: clamp(140px, 70%, 240px);
     }
 }

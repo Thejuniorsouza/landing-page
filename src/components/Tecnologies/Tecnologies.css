@@ -1,94 +1,68 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap");
 
 .bodyTecs {
-    margin: 0 0 4rem;
+    margin: 0 auto clamp(2rem, 8%, 4rem);
+    padding: 0 clamp(1rem, 8%, 4rem);
+    width: 100%;
+    max-width: 100%;
+}
+
+.bodyTecs h1 {
+    font-family: var(--font-mono);
+    color: var(--color-gray);
+    font-size: clamp(28px, 5vw, 35px);
+    font-weight: bold;
+    margin: clamp(1rem, 3%, 2rem) 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .tecs {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    grid-column-gap: 130px;
-    grid-row-gap: 30px;
+    grid-template-columns: repeat(4, minmax(100px, 1fr));
+    gap: clamp(3rem, 8%, 200px) clamp(2rem, 5%, 100px);
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: clamp(1rem, 4%, 3rem) clamp(2rem, 8%, 6rem);
 }
 
-.css {
-    grid-area: 1 / 1 / 2 / 2;
-}
-.git {
-    grid-area: 1 / 2 / 2 / 3;
-}
-.javascript {
-    grid-area: 1 / 3 / 2 / 4;
-}
-.ruby {
-    grid-area: 1 / 4 / 2 / 5;
-}
-.java {
-    grid-area: 2 / 1 / 3 / 2;
-}
-.div7 {
-    grid-area: 2 / 2 / 3 / 3;
-}
-.react {
-    grid-area: 2 / 3 / 3 / 4;
-}
-.mongodb {
-    grid-area: 2 / 4 / 3 / 5;
-}
-
-h1 {
-    font-family: "IBM Plex Mono", monospace;
-    text-decoration: none;
-    color: #9c9c9c;
-    font-weight: bold;
-    font-size: 35px;
-}
-
-.tecs h3 {
-    font-family: "IBM Plex Mono", monospace;
-    text-decoration: none;
-    color: #9c9c9c;
-    font-weight: bold;
-    font-size: 18px;
+@media screen and (max-width: 1024px) {
+    .tecs {
+        grid-template-columns: repeat(3, minmax(80px, 1fr));
+        gap: clamp(2.5rem, 6%, 150px) clamp(1.5rem, 4%, 80px);
+        padding: clamp(0.5rem, 3%, 2rem) clamp(1.5rem, 6%, 4rem);
+    }
 }
 
 @media screen and (max-width: 768px) {
     .tecs {
-        display: grid;
-        margin-left: 0.4rem;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(3, 1fr);
-        grid-column-gap: 30px;
-        grid-row-gap: 30px;
+        grid-template-columns: repeat(2, minmax(70px, 1fr));
+        gap: clamp(2rem, 5%, 80px) clamp(1.5rem, 4%, 50px);
+        padding: clamp(0.5rem, 3%, 1.5rem) clamp(1rem, 4%, 2rem);
     }
+}
 
-    .tecs {
-        margin-right: auto;
-    }
+.tecs > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(1rem, 3%, 2rem);
+}
 
-    .html {
-        grid-area: 1 / 1 / 2 / 2;
-    }
-    .css {
-        grid-area: 1 / 2 / 2 / 3;
-    }
-    .git {
-        grid-area: 1 / 3 / 2 / 4;
-    }
-    .javascript {
-        grid-area: 2 / 1 / 3 / 2;
-    }
-    .ruby {
-        grid-area: 2 / 2 / 3 / 3;
-    }
-    .java {
-        grid-area: 2 / 3 / 3 / 4;
-    }
-    .react {
-        grid-area: 3 / 1 / 4 / 2;
-    }
-    .mongodb {
-        grid-area: 3 / 2 / 4 / 3;
-    }
+.tecs h3 {
+    font-family: var(--font-mono);
+    color: var(--color-gray);
+    font-weight: bold;
+    font-size: clamp(14px, 2.5vw, 18px);
+    margin-top: clamp(0.5rem, 2%, 1rem);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    text-align: center;
+}
+
+.tecs img {
+    max-width: clamp(80px, 12vw, 150px);
+    height: auto;
 }

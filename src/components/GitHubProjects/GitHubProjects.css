@@ -1,111 +1,171 @@
 .github-projects {
     background-color: white;
+    width: 100%;
 }
-.imgCard1 {
-    opacity: 1;
-    transition: opacity 1s ease 0s;
-}
+
 .headerProject {
-    padding: 1.5rem 0;
+    padding: clamp(1rem, 3%, 1.5rem) 0;
     background-color: white;
+    width: 100%;
 }
 
 .card1 {
-    width: 100%;
     display: flex;
     flex-direction: row;
+    gap: clamp(1rem, 4%, 2rem);
     align-items: center;
-    justify-content: baseline;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0 clamp(0.5rem, 5%, 2rem);
+    width: 100%;
+    max-width: 100%;
+}
+
+.imgCard1 {
+    opacity: 1;
+    transition: opacity 1s ease 0s;
+    width: 100%;
+    max-width: clamp(250px, 45%, 500px);
+    height: auto;
 }
 
 .headerProject img {
-    height: 25rem;
-    height: auto; /* Altura ajustável */
-    aspect-ratio: 16/9; /* Força a proporção widescreen (mockup) */
-    width: 30rem;
-    margin-top: 5rem;
+    width: 100%;
+    max-width: clamp(250px, 45%, 30rem);
+    height: auto;
+    aspect-ratio: 16/9;
+    margin-top: clamp(1rem, 3%, 5rem);
     border-radius: 20px;
-    object-fit: cover; /* Garante que a imagem cubra o espaço sem esticar */
-    object-position: top; /* Prioriza o topo da imagem no corte */
+    object-fit: cover;
+    object-position: top;
+    display: block;
 }
 
 .textCard1 {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 4rem 2rem;
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 15px;
-    color: #9c9c9c;
+    gap: 1rem;
+    padding: clamp(1rem, 3%, 4rem) clamp(0.5rem, 3%, 2rem);
+    font-family: var(--font-mono);
+    font-size: clamp(13px, 2vw, 15px);
+    color: var(--color-gray);
+    flex: 1 1 clamp(250px, 45%, 400px);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.textCard1 h2 {
+    font-size: clamp(18px, 3vw, 24px);
+    margin: 0;
+}
+
+.textCard1 p {
+    margin: 0;
+    line-height: 1.6;
 }
 
 .btn-card {
-    margin-top: 5rem;
     display: flex;
-    justify-content: space-around;
+    gap: clamp(0.5rem, 3%, 1rem);
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: clamp(1rem, 3%, 5rem);
 }
 
-.headerProject {
-    padding: 0;
+.btn-card button {
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--color-accent);
+    color: white;
+    font-weight: bold;
+    font-size: clamp(12px, 2vw, 16px);
+    cursor: pointer;
+    transition: opacity 0.3s;
 }
+
+.btn-card button:hover {
+    opacity: 0.8;
+}
+
 .custom-shape-divider-top-1725584300 {
-    /* position: absolute; */
     top: 0;
     left: 0;
     width: 100%;
     overflow: hidden;
     line-height: 0;
+    margin: 0;
+    margin-top: -24px;
 }
 
 .custom-shape-divider-top-1725584300 svg {
     position: relative;
     display: block;
-    width: calc(200% + 1.3px);
-    height: 150px;
+    width: 100%;
+    height: auto;
+    max-height: clamp(80px, 10vw, 150px);
     transform: rotateY(180deg);
 }
 
 .custom-shape-divider-top-1725584300 .shape-fill {
-    fill: #080808;
+    fill: var(--color-dark);
 }
 
-/* FADE DIVIDER */
+.custom-shape-divider-bottom-1725584178 {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1725584178 svg {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    transform: rotateY(180deg);
+}
+
+.custom-shape-divider-bottom-1725584178 .shape-fill {
+    fill: var(--color-dark);
+}
 
 .page {
-    padding: 40px;
-}
-
-.dashed-divider {
-    margin: 20px 0;
+    padding: clamp(1rem, 5%, 40px);
+    width: 100%;
+    max-width: 100%;
 }
 
 .dashed-divider {
     border: none;
     border-bottom: 3px dashed;
+    margin: clamp(1rem, 4%, 20px) 0;
+    color: var(--color-gray);
 }
 
 .footer {
-    padding: 8rem 0 0 0;
+    padding: clamp(3rem, 8%, 8rem) 0 0 0;
 }
 
 @media screen and (max-width: 768px) {
-    .headerProject {
-        padding: 0;
-        background-color: white;
-    }
-
     .card1 {
         flex-direction: column;
+        padding: 0 clamp(0.5rem, 3%, 1.5rem);
     }
 
     .headerProject img {
-        height: auto;
-        width: 90%;
-        margin-top: 2rem;
-        max-height: 25rem;
+        max-width: 90%;
+        margin-top: clamp(1rem, 3%, 2rem);
     }
 
     .textCard1 {
-        padding: 2rem 1rem;
+        padding: clamp(1rem, 3%, 2rem) clamp(0.5rem, 3%, 1.5rem);
+    }
+
+    .imgCard1 {
+        width: 90%;
     }
 }

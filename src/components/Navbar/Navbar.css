@@ -4,64 +4,51 @@
     align-items: center;
     justify-content: space-around;
     display: flex;
-    width: 69.375rem;
-    height: 3.8rem;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: #1b1b1b;
-    padding: 1.5rem 4.6rem;
+    width: clamp(80%, 69.375rem, 100%);
+    height: auto;
+    max-width: 100%;
+    padding: clamp(0.5rem, 5%, 1.5rem) clamp(1rem, 5%, 4.6rem);
     position: fixed;
     top: 0;
-    border-radius: 0px 0px 8px 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color-bg-card);
+    border-radius: 0 0 8px 8px;
     z-index: 1000;
+    flex-wrap: wrap;
+    gap: clamp(1rem, 3%, 2rem);
 }
 
-.medias {
-    display: inline-block;
-    padding: 30px;
-    border-left: 6rem;
-}
-
-/* Estilizando a lista de links do menu */
 .navbar ul {
-    list-style-type: none;
+    list-style: none;
     margin: 0;
     padding: 0;
+    display: flex;
+    gap: clamp(1rem, 3%, 4.375rem);
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-/* Estilizando cada item de menu */
 .navbar li {
     display: inline-block;
-    margin-right: 4.375rem;
 }
 
-/* Estilizando os links do menu */
 .navbar a {
-    font-family: "IBM Plex Mono", monospace;
+    font-family: var(--font-mono);
     text-decoration: none;
-    color: #9c9c9c;
+    color: var(--color-gray);
     font-weight: bold;
-    font-size: 18px;
+    font-size: clamp(14px, 2vw, 18px);
     transition: color 0.3s;
+    white-space: nowrap;
 }
 
 .navbar a:hover {
-    color: #ff6600;
+    color: var(--color-accent);
 }
 
-@media screen and (max-width: 768px) {
-    .navbar {
-        width: 100%;
-        height: 4rem;
-        flex-direction: column;
-        margin: 0px;
-        left: 0px;
-        right: 0px;
-        padding: 1.5rem 0rem;
-    }
-
-    .navbar li {
-        margin-bottom: 20px;
-        margin-right: 1.8rem;
-    }
+.medias {
+    padding: 0 !important;
+    border-left: none !important;
+    display: inline-flex;
 }
