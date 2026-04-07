@@ -17,6 +17,20 @@
     z-index: 1000;
     flex-wrap: wrap;
     gap: clamp(1rem, 3%, 2rem);
+    transition: all 0.3s ease;
+}
+
+.navbar-scrolled {
+    padding: clamp(0.3rem, 2%, 0.8rem) clamp(0.75rem, 3%, 3.5rem);
+    gap: clamp(0.75rem, 2.5%, 1.5rem);
+}
+
+.navbar-scrolled ul {
+    gap: clamp(1.5rem, 4%, 4.5rem) !important;
+}
+
+.navbar-scrolled a {
+    font-size: clamp(12px, 1.5vw, 14px) !important;
 }
 
 .navbar ul {
@@ -24,9 +38,10 @@
     margin: 0;
     padding: 0;
     display: flex;
-    gap: clamp(1rem, 3%, 4.375rem);
+    gap: clamp(2rem, 5%, 6rem);
     flex-wrap: wrap;
     justify-content: center;
+    transition: all 0.3s ease;
 }
 
 .navbar li {
@@ -39,7 +54,7 @@
     color: var(--color-gray);
     font-weight: bold;
     font-size: clamp(14px, 2vw, 18px);
-    transition: color 0.3s;
+    transition: all 0.3s ease;
     white-space: nowrap;
 }
 
@@ -51,4 +66,51 @@
     padding: 0 !important;
     border-left: none !important;
     display: inline-flex;
+    transition: all 0.3s ease;
+}
+
+.navbar-scrolled .medias svg {
+    transform: scale(0.85);
+}
+
+/* Mobile Island Style - Estilo Ilha do iPhone */
+@media screen and (max-width: 768px) {
+    .navbar-scrolled {
+        width: clamp(85%, 320px, 95%) !important;
+        top: 12px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        border-radius: 50px !important;
+        padding: 0.5rem clamp(1rem, 3%, 1.5rem) !important;
+        gap: clamp(0.5rem, 2%, 1rem) !important;
+        background-color: rgba(27, 27, 27, 0.95) !important;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    .navbar-scrolled ul {
+        gap: clamp(1rem, 3%, 2rem) !important;
+    }
+
+    .navbar-scrolled a {
+        font-size: clamp(11px, 1.3vw, 13px) !important;
+    }
+
+    .navbar-scrolled .medias {
+        gap: clamp(0.5rem, 2%, 1rem) !important;
+        align-items: center !important;
+        display: inline-flex !important;
+    }
+
+    .navbar-scrolled .medias li {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    .navbar-scrolled .medias svg {
+        transform: scale(0.75);
+    }
 }

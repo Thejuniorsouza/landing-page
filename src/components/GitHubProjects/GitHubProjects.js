@@ -56,7 +56,7 @@ const ProjectCard = ({ project }) => (
 
 const GitHubProjectSection = () => {
     return (
-        <div className="github-projects">
+        <div className="github-projects" id="projects">
             <section className="headerProject">
                 <div className="custom-shape-divider-top-1725584300">
                     <svg

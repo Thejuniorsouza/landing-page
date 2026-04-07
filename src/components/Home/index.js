@@ -12,7 +12,7 @@ const titleText = "Junior Souza";
 
 const Home = (props) => {
     return (
-        <div className="home">
+        <div className="home" id="home">
             <div className="text">
                 <TypingEffect
                     text={titleText}

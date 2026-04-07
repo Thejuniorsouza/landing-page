@@ -9,6 +9,10 @@
         -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 * {
     box-sizing: border-box;
 }
