@@ -7,8 +7,17 @@ import ajudaImage from "../../assets/ajudaImage.png";
 import bibliotecaOnline from "../../assets/bibliotecaOnline.png";
 import foodScriptImage from "../../assets/foodScriptImage.png";
 import bomboniereImage from "../../assets/bomboniereImage.png";
+import imobTechImage from "../../assets/imobTechImage.png";
 
 const projectsData = [
+    {
+        title: "ImobTech",
+        description:
+            "SAAS ImobTech. O projeto que facilita controle de aluguéis e gestão de imóveis.",
+        repoLink: "https://github.com/Thejuniorsouza/ImobTech",
+        liveLink: "/",
+        image: imobTechImage,
+    },
     {
         title: "Bomboniere Manas",
         description:
