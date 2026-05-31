@@ -15,7 +15,8 @@ const projectsData = [
         description:
             "SAAS ImobTech. O projeto que facilita controle de aluguéis e gestão de imóveis.",
         repoLink: "https://github.com/Thejuniorsouza/ImobTech",
-        liveLink: "/",
+        liveLink:
+            "https://imobtech-ib0884xzi-thejuniorsouzas-projects.vercel.app/login",
         image: imobTechImage,
     },
     {
