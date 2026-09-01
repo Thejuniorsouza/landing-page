@@ -1,15 +1,19 @@
 import React from "react";
 
-function Button(props) {
+function Button({ text, color, onClick, className = "btn" }) {
+    const isTransparent = color === "transparent";
+
     return (
-        <div className="btn">
+        <div className={className}>
             <button
-                style={{ backgroundColor: props.color, padding: "10px 15px" }}
-                onClick={props.onClick}
-                href={props}
-                target="_blank"
+                style={
+                    isTransparent
+                        ? undefined
+                        : { backgroundColor: color, borderColor: color }
+                }
+                onClick={onClick}
             >
-                {props.text}
+                {text}
             </button>
         </div>
     );

@@ -1,171 +1,147 @@
-.github-projects {
-    background-color: white;
-    width: 100%;
+.projects-section {
+    padding: clamp(3rem, 8vw, 5rem) 0;
 }
 
-.headerProject {
-    padding: clamp(1rem, 3%, 1.5rem) 0;
-    background-color: white;
-    width: 100%;
-}
-
-.card1 {
+.project-filters {
     display: flex;
-    flex-direction: row;
-    gap: clamp(1rem, 4%, 2rem);
-    align-items: center;
     justify-content: center;
+    gap: 0.75rem;
     flex-wrap: wrap;
-    padding: 0 clamp(0.5rem, 5%, 2rem);
-    width: 100%;
-    max-width: 100%;
+    margin-bottom: 2.5rem;
 }
 
-.imgCard1 {
-    opacity: 1;
-    transition: opacity 1s ease 0s;
-    width: 100%;
-    max-width: clamp(250px, 45%, 500px);
-    height: auto;
+.filter-btn {
+    padding: 0.5rem 1.25rem;
+    background: transparent;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-pill);
+    color: var(--color-text-muted);
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
 }
 
-.headerProject img {
+.filter-btn:hover,
+.filter-btn.active {
+    background: var(--color-light);
+    color: var(--color-bg);
+    border-color: var(--color-light);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.project-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.project-card:hover {
+    border-color: #444;
+}
+
+.project-image-btn {
+    display: block;
     width: 100%;
-    max-width: clamp(250px, 45%, 30rem);
-    height: auto;
-    aspect-ratio: 16/9;
-    margin-top: clamp(1rem, 3%, 5rem);
-    border-radius: 20px;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+}
+
+.project-image-btn img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     object-position: top;
-    display: block;
+    transition: transform 0.4s ease;
 }
 
-.textCard1 {
+.project-card:hover .project-image-btn img {
+    transform: scale(1.04);
+}
+
+.project-card-footer {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 1rem;
-    padding: clamp(1rem, 3%, 4rem) clamp(0.5rem, 3%, 2rem);
-    font-family: var(--font-mono);
-    font-size: clamp(13px, 2vw, 15px);
-    color: var(--color-gray);
-    flex: 1 1 clamp(250px, 45%, 400px);
-    word-wrap: break-word;
-    overflow-wrap: break-word;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1rem 1.25rem 1.25rem;
 }
 
-.textCard1 h2 {
-    font-size: clamp(18px, 3vw, 24px);
-    margin: 0;
+.project-info h3 {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    margin: 0 0 0.375rem;
 }
 
-.textCard1 p {
-    margin: 0;
-    line-height: 1.6;
+.project-info p {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+    margin: 0 0 0.75rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
-.btn-card {
+.project-links {
     display: flex;
-    gap: clamp(0.5rem, 3%, 1rem);
+    gap: 0.5rem;
     flex-wrap: wrap;
-    justify-content: center;
-    margin-top: clamp(1rem, 3%, 5rem);
 }
 
-.btn-card button {
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    border: none;
-    background-color: var(--color-accent);
-    color: white;
-    font-weight: bold;
-    font-size: clamp(12px, 2vw, 16px);
+.project-link-btn {
+    padding: 0.375rem 0.75rem;
+    background: transparent;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-pill);
+    color: var(--color-text-muted);
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    font-weight: 500;
     cursor: pointer;
-    transition: opacity 0.3s;
+    transition: var(--transition);
 }
 
-.btn-card button:hover {
-    opacity: 0.8;
+.project-link-btn:hover,
+.project-link-btn.primary {
+    background: var(--color-light);
+    color: var(--color-bg);
+    border-color: var(--color-light);
 }
 
-.custom-shape-divider-top-1725584300 {
-    top: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-    margin: 0;
-    margin-top: -24px;
+.project-type-icon {
+    color: var(--color-text-muted);
+    flex-shrink: 0;
+    margin-top: 0.125rem;
 }
 
-.custom-shape-divider-top-1725584300 svg {
-    position: relative;
-    display: block;
-    width: 100%;
-    height: auto;
-    max-height: clamp(80px, 10vw, 150px);
-    transform: rotateY(180deg);
+.projects-view-all {
+    display: flex;
+    justify-content: center;
+    margin-top: 2.5rem;
 }
 
-.custom-shape-divider-top-1725584300 .shape-fill {
-    fill: var(--color-dark);
-}
-
-.custom-shape-divider-bottom-1725584178 {
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-    transform: rotate(180deg);
-}
-
-.custom-shape-divider-bottom-1725584178 svg {
-    position: relative;
-    display: block;
-    width: 100%;
-    height: auto;
-    transform: rotateY(180deg);
-}
-
-.custom-shape-divider-bottom-1725584178 .shape-fill {
-    fill: var(--color-dark);
-}
-
-.page {
-    padding: clamp(1rem, 5%, 40px);
-    width: 100%;
-    max-width: 100%;
-}
-
-.dashed-divider {
-    border: none;
-    border-bottom: 3px dashed;
-    margin: clamp(1rem, 4%, 20px) 0;
-    color: var(--color-gray);
-}
-
-.footer {
-    padding: clamp(3rem, 8%, 8rem) 0 0 0;
-}
-
-@media screen and (max-width: 768px) {
-    .card1 {
-        flex-direction: column;
-        padding: 0 clamp(0.5rem, 3%, 1.5rem);
+@media screen and (max-width: 900px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
+}
 
-    .headerProject img {
-        max-width: 90%;
-        margin-top: clamp(1rem, 3%, 2rem);
-    }
-
-    .textCard1 {
-        padding: clamp(1rem, 3%, 2rem) clamp(0.5rem, 3%, 1.5rem);
-    }
-
-    .imgCard1 {
-        width: 90%;
+@media screen and (max-width: 560px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
     }
 }

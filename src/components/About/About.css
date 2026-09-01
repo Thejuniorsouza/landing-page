@@ -1,0 +1,16 @@
+.about-section {
+    padding: clamp(3rem, 8vw, 5rem) 0;
+}
+
+.about-content {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-content p {
+    font-size: clamp(0.9375rem, 2vw, 1.0625rem);
+    color: var(--color-text-muted);
+    line-height: 1.8;
+    margin: 0;
+}

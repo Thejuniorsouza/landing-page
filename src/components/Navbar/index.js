@@ -1,83 +1,78 @@
 import "./Navbar.css";
 import React, { useState, useEffect } from "react";
-import { AiFillGithub } from "react-icons/ai";
-import { AiFillLinkedin } from "react-icons/ai";
 
-const Navbar = (props) => {
-    const [isScrolled, setIsScrolled] = useState(false);
+const navLinks = [
+    { label: "Home", href: "#home" },
+    { label: "Sobre", href: "#about" },
+    { label: "Tecnologias", href: "#bodyTecs" },
+    { label: "Projetos", href: "#projects" },
+    { label: "Contato", href: "#contact" },
+];
+
+const Navbar = () => {
+    const [menuOpen, setMenuOpen] = useState(false);
 
     useEffect(() => {
-        const handleScroll = () => {
-            // Se scroll for maior que 50px, ativar o modo reduzido
-            setIsScrolled(window.scrollY > 50);
+        document.body.style.overflow = menuOpen ? "hidden" : "";
+        return () => {
+            document.body.style.overflow = "";
         };
-
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+    }, [menuOpen]);
 
     const handleSmoothScroll = (e) => {
         const href = e.currentTarget.getAttribute("href");
-
-        // Se for um link externo, deixar o comportamento padrão
-        if (href.startsWith("http")) {
-            return;
-        }
-
-        // Se for um âncora (#), fazer scroll suave
-        if (href.startsWith("#")) {
+        if (href?.startsWith("#")) {
             e.preventDefault();
-            const targetId = href.substring(1);
-            const targetElement = document.getElementById(targetId);
-
-            if (targetElement) {
-                targetElement.scrollIntoView({ behavior: "smooth" });
-            }
+            setMenuOpen(false);
+            document.getElementById(href.substring(1))?.scrollIntoView({
+                behavior: "smooth",
+            });
         }
     };
 
     return (
-        <nav className={`navbar ${isScrolled ? "navbar-scrolled" : ""}`}>
-            <ul>
-                <li>
-                    <a href="#home" onClick={handleSmoothScroll}>
-                        Home
-                    </a>
-                </li>
-                <li>
-                    <a href="#bodyTecs" onClick={handleSmoothScroll}>
-                        Tecnologias
-                    </a>
-                </li>
-                <li>
-                    <a href="#projects" onClick={handleSmoothScroll}>
-                        Projetos
-                    </a>
-                </li>
-            </ul>
+        <header className="navbar">
+            <div className="navbar-inner section-container">
+                <a
+                    href="#home"
+                    className="navbar-brand"
+                    onClick={handleSmoothScroll}
+                >
+                    Junior
+                </a>
 
-            <ul className="medias">
-                <li>
+                <button
+                    className={`navbar-toggle ${menuOpen ? "open" : ""}`}
+                    onClick={() => setMenuOpen(!menuOpen)}
+                    aria-label="Menu"
+                >
+                    <span />
+                    <span />
+                    <span />
+                </button>
+
+                <nav className={`navbar-menu ${menuOpen ? "open" : ""}`}>
+                    <ul className="navbar-links">
+                        {navLinks.map((link) => (
+                            <li key={link.href}>
+                                <a
+                                    href={link.href}
+                                    onClick={handleSmoothScroll}
+                                >
+                                    {link.label}
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
                     <a
-                        href="https://www.linkedin.com/in/junior-souza-83896b210/"
-                        target="_blank"
-                        rel="noreferrer"
+                        href="mailto:juniorsouzacmr@gmail.com"
+                        className="btn-pill navbar-cta"
                     >
-                        <AiFillLinkedin size={30} />
+                        Me contate
                     </a>
-                </li>
-                <li>
-                    <a
-                        href="https://github.com/Thejuniorsouza"
-                        target="_blank"
-                        rel="noreferrer"
-                    >
-                        {" "}
-                        <AiFillGithub size={30} />{" "}
-                    </a>
-                </li>
-            </ul>
-        </nav>
+                </nav>
+            </div>
+        </header>
     );
 };
 

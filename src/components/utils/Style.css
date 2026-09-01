@@ -1,125 +1,81 @@
-/* GridProject */
-
-.GridContainer {
-    background-color: white;
-    display: flex;
-    flex-direction: row;
-    gap: clamp(1rem, 4%, 20px);
-    margin: 0 auto;
-    padding: 0 clamp(1rem, 5%, 16.5rem);
-    width: 100%;
-    max-width: 100%;
-    flex-wrap: wrap;
-}
-
-.col1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 1 1 clamp(250px, 40%, 500px);
-}
-
-.col1 img {
-    width: 100%;
-    height: auto;
-    max-width: 100%;
-}
-
-.col2 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex: 1 1 clamp(250px, 40%, 500px);
-}
-
 /* Details */
 
 .detailsContainer {
-    gap: clamp(1rem, 3%, 20px);
-    min-height: auto;
-    max-height: clamp(auto, 100%, 30rem);
-    width: 100%;
-    background-color: white;
-    align-items: center;
-    justify-content: center;
     display: flex;
     flex-direction: column;
-    padding: clamp(1rem, 3%, 2rem);
+    gap: 0.75rem;
+    padding: 1.5rem;
+    flex: 1;
 }
 
 .detailsContainer h2 {
-    font-size: clamp(18px, 3vw, 24px);
-    margin: 0 0 clamp(0.5rem, 2%, 10px) 0;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
+    font-family: var(--font-sans);
+    font-size: clamp(1.125rem, 2.5vw, 1.375rem);
+    font-weight: 700;
+    color: var(--color-light);
+    margin: 0;
 }
 
-.detailsContainer p {
-    margin: 0 0 clamp(1rem, 3%, 20px) 0;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
+.textDetail {
+    font-family: var(--font-mono);
+    font-size: clamp(0.75rem, 1.6vw, 0.8125rem);
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .details-buttons {
     display: flex;
-    justify-content: center;
-    gap: clamp(0.5rem, 3%, 10px);
+    gap: 0.75rem;
     flex-wrap: wrap;
-}
-
-.detailContent {
-    justify-content: center;
-    width: 100%;
+    margin-top: auto;
+    padding-top: 0.5rem;
 }
 
 .btn button {
-    margin: clamp(1rem, 3%, 3rem);
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    border: none;
-    background-color: var(--color-accent);
-    color: white;
-    font-weight: bold;
-    font-size: clamp(12px, 2vw, 16px);
-    cursor: pointer;
-    transition: opacity 0.3s;
-    text-decoration: none;
-}
-
-.btn button:hover {
-    opacity: 0.8;
-}
-
-.textDetail {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: clamp(1rem, 3%, 4rem) clamp(1rem, 3%, 3rem);
+    padding: 0.625rem 1.25rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-border);
     font-family: var(--font-mono);
-    font-size: clamp(13px, 2vw, 15px);
-    color: var(--color-gray);
-    word-wrap: break-word;
-    overflow-wrap: break-word;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    color: var(--color-text-muted);
+}
+
+.btn-outline button {
+    background: transparent;
+    border-color: var(--color-border);
+    color: var(--color-text-muted);
+}
+
+.btn-outline button:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+}
+
+.btn-filled button {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-dark);
+}
+
+.btn-filled button:hover {
+    background: #e55a00;
+    border-color: #e55a00;
 }
 
 @media screen and (max-width: 768px) {
-    .GridContainer {
-        flex-direction: column;
-        padding: 0 clamp(1rem, 3%, 1.5rem);
-        margin: clamp(2rem, 5%, 3rem) auto;
-    }
-
-    .col1,
-    .col2 {
-        flex: 1 1 100%;
+    .detailsContainer {
+        padding: 1.25rem;
     }
 
     .textDetail {
-        padding: clamp(1rem, 3%, 2rem) clamp(0.5rem, 3%, 1.5rem);
-    }
-
-    .btn button {
-        margin: clamp(0.5rem, 2%, 1rem);
+        -webkit-line-clamp: 6;
     }
 }
